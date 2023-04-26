@@ -30,12 +30,6 @@
   transition-property: background-color height;
 }
 
-/* Touching the scroll-track directly makes the scroll-track bolder */
-.ScrollbarLayout/mainHorizontal.public/Scrollbar/mainActive,
-.ScrollbarLayout/mainHorizontal:hover {
-  height: var(--scrollbar-size-large);
-}
-
 .ScrollbarLayout/face {
   left: 0;
   overflow: hidden;
@@ -81,6 +75,7 @@
 
 .ScrollbarLayout/faceHorizontal.public/Scrollbar/faceActive:after,
 .ScrollbarLayout/main:hover .ScrollbarLayout/faceHorizontal:after {
+  top: calc(var(--scrollbar-face-margin)/2);
   bottom: calc(var(--scrollbar-face-margin)/2);
 }
 
