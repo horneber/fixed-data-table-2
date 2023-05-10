@@ -162,6 +162,11 @@ class FixedDataTableRowImpl extends React.Component {
      * DOM attributes to be applied to the row.
      */
     attributes: PropTypes.object,
+
+    /**
+     * Element to use as drag handle for reordering.
+     */
+    reorderHandle: PropTypes.elementType,
   };
 
   shouldComponentUpdate(nextProps) {
@@ -224,6 +229,7 @@ class FixedDataTableRowImpl extends React.Component {
         isHeaderOrFooter={this.props.isHeaderOrFooter}
         isRTL={this.props.isRTL}
         isVisible={this.props.visible}
+        reorderHandle={this.props.reorderHandle}
       />
     );
     var columnsLeftShadow = this._renderColumnsLeftShadow(fixedColumnsWidth);
@@ -253,6 +259,7 @@ class FixedDataTableRowImpl extends React.Component {
         isHeaderOrFooter={this.props.isHeaderOrFooter}
         isRTL={this.props.isRTL}
         isVisible={this.props.visible}
+        reorderHandle={this.props.reorderHandle}
       />
     );
     var fixedRightColumnsShadow = fixedRightColumnsWidth
@@ -289,6 +296,7 @@ class FixedDataTableRowImpl extends React.Component {
         isHeaderOrFooter={this.props.isHeaderOrFooter}
         isRTL={this.props.isRTL}
         isVisible={this.props.visible}
+        reorderHandle={this.props.reorderHandle}
       />
     );
     var scrollableColumnsWidth = sumPropWidths(this.props.scrollableColumns);
@@ -525,6 +533,11 @@ class FixedDataTableRow extends React.Component {
      * Width of the row.
      */
     width: PropTypes.number.isRequired,
+
+    /**
+     * Element to use as drag handle for reordering.
+     */
+    reorderHandle: PropTypes.elementType,
   };
 
   constructor(props) {

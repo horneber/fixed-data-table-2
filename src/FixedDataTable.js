@@ -487,6 +487,11 @@ class FixedDataTable extends React.Component {
      * ```
      */
     rowAttributesGetter: PropTypes.func,
+
+    /**
+     * Element to use as drag handle for reordering.
+     */
+    reorderHandle: PropTypes.elementType,
   };
 
   static defaultProps = /*object*/ {
@@ -772,6 +777,7 @@ class FixedDataTable extends React.Component {
       tableSize,
       touchScrollEnabled,
       scrollbarYWidth,
+      reorderHandle,
     } = this.props;
 
     const { ownerHeight, width } = tableSize;
@@ -816,6 +822,8 @@ class FixedDataTable extends React.Component {
           showScrollbarY={scrollEnabledY}
           scrollbarYWidth={scrollbarYWidth}
           isRTL={this.props.isRTL}
+          // TODO HH required for group header?
+          reorderHandle={reorderHandle}
         />
       );
     }
@@ -872,6 +880,8 @@ class FixedDataTable extends React.Component {
           showScrollbarY={scrollEnabledY}
           scrollbarYWidth={scrollbarYWidth}
           isRTL={this.props.isRTL}
+          // TODO HH required for footer?
+          // reorderHandle={reorderHandle}
         />
       );
     }
@@ -916,6 +926,8 @@ class FixedDataTable extends React.Component {
         showScrollbarY={scrollEnabledY}
         scrollbarYWidth={scrollbarYWidth}
         isRTL={this.props.isRTL}
+        // TODO HH required for regular header vs group header? Might need it in both?
+        reorderHandle={reorderHandle}
       />
     );
 

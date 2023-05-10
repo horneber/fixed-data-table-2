@@ -64,6 +64,11 @@ class FixedDataTableCellGroupImpl extends React.Component {
     isRTL: PropTypes.bool,
 
     isVisible: PropTypes.bool.isRequired,
+
+    /**
+     * Element to use as drag handle for reordering.
+     */
+    reorderHandle: PropTypes.elementType,
   };
 
   constructor(props) {
@@ -187,6 +192,7 @@ class FixedDataTableCellGroupImpl extends React.Component {
         pureRendering={pureRendering}
         isRTL={this.props.isRTL}
         isVisible={this.props.isVisible && isHorizontallyVisible}
+        reorderHandle={this.props.reorderHandle}
       />
     );
   };

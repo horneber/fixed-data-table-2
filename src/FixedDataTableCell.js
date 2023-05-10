@@ -92,6 +92,11 @@ class FixedDataTableCell extends React.Component {
      * Whether this cell is visible (i.e, inside the viewport) or not.
      */
     isVisible: PropTypes.bool.isRequired,
+
+    /**
+     * Element to use as drag handle for reordering.
+     */
+    reorderHandle: PropTypes.elementType,
   };
 
   state = {
@@ -288,9 +293,11 @@ class FixedDataTableCell extends React.Component {
 
     var columnReorderComponent;
     if (props.onColumnReorder) {
+      var CreatorFunc =
+        props.reorderHandle ?? FixedDataTableColumnReorderHandle;
       //header row
       columnReorderComponent = (
-        <FixedDataTableColumnReorderHandle
+        <CreatorFunc
           columnKey={this.columnKey}
           touchEnabled={this.props.touchEnabled}
           onMouseDown={this._onColumnReorderMouseDown}
